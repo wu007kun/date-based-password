@@ -1,14 +1,31 @@
 {
   "name": "date-based-password",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.7",
+  "private": false,
+  "main": "dist/index.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "buildlib": "vue-cli-service build --target lib --name index src/lib/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wu007kun/date-based-password.git"
+  },
+  "files": [
+    "dist/index.umd.min.js",
+    "dist/style.css"
+  ],
+  "keywords": [
+    "Password",
+    "Vue",
+    "Sha1"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "js-sha1": "^0.6.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
