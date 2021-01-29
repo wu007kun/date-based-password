@@ -19,7 +19,7 @@ const vueApp = createApp(App)
 
 const loginComp = createComp({
   Vue: vueApp,
-  key: 3588,
+  key: 3588, // 0000~9999 it's used to generate and verify the password
   defaultPassword: 'your-default-password',
   title: 'Please Login',
   btnText: 'Submit',
@@ -73,7 +73,7 @@ vueApp.use(router).mount('#app')
 ```
 
 ## Custom Style
-You can use your own stylesheet instead of the default "date-based-password.css"
+You can use your own stylesheet instead of the default "dist/style.css"
 The template of the components is like this:
 ``` html
 <div class="login-page">
