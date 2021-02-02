@@ -5,8 +5,29 @@ A Vue3 component to generate and verify a password based on date
 
     npm install date-based-password -S
 
-## Example
+## Usage
+### Generate a password
+``` javascript
+import { generatePassword } from 'date-based-password'
+const expireAt = '20210915' // YYYYMMDD
+const key = 3588 // 0000~9999
+const password = generatePassword(expireAt, key)
+```
 
+### Decode a password
+``` javascript
+import { decodePassword } from 'date-based-password'
+const password = 'uwhzq01e'
+const key = 3588 // 0000~9999
+const result = decodePassword(password, key)
+// { code: 200, info: expireTimeInTimestamp }
+// or
+// { code: 401, info: 'error' }
+// or
+// { code: 403, info: 'expired' }
+```
+
+### Use the login component
 ``` javascript
 // in main.js
 import { createApp } from 'vue'
@@ -24,26 +45,11 @@ const loginComp = createComp({
   title: 'Please Login',
   btnText: 'Submit',
   onSuccess (res) {
-    // {
-    //   code: 200,
-    //   info: expireTimeInTimestamp
-    // }
-    // then you can handle success
     router.push({
       name: 'Home'
     })
   },
   onError (res) {
-    // {
-    //   code: 401,
-    //   info: 'error'
-    // }
-    // or
-    // {
-    //   code: 403,
-    //   info: 'expired'
-    // }
-    // then you can handle error
     alert(res.info)
   }
 })

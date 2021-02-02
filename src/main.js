@@ -7,11 +7,10 @@ const vueApp = createApp(App)
 const loginComp = createComp({
   Vue: vueApp,
   key: 3588,
-  defaultPassword: 'clear!@#',
+  defaultPassword: '1234abc',
   title: 'Login',
   btnText: 'Submit',
   onSuccess (res) {
-    console.log(res.info)
     router.push({
       name: 'Home'
     })
@@ -41,6 +40,5 @@ router.afterEach((to, from) => {
     localStorage.removeItem('dbpExpireAt')
   }
 })
-
-
+ 
 vueApp.use(router).mount('#app')

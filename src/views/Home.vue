@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="home">
     <input type="text" v-model="expireAt" placeholder="YYYYMMDD">
     <input type="text" v-model="key" placeholder="key">
-    <button @click="getPassword">生成密码</button>
-    <button @click="logout">退出</button>
+    <button @click="getPassword">Generate</button>
+    <button @click="logout">Logout</button>
     <p>{{ result }}</p>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
       if (this.expireAt.length === 8) {
         this.result = generatePassword(this.expireAt, this.key)
       } else {
-        this.result = '格式错误'
+        this.result = 'Format error'
       }
     },
     logout () {
